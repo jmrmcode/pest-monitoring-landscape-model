@@ -1,4 +1,4 @@
-# Landscape-scale Simulation and Monitoring of Insect Pest Abundance
+# Landscape-scale Simulation and Evaluation of Insect Pest Abundance Sampling Strategies
 
 This repository contains R code and spatial data associated with the manuscript on simulating and evaluating insect pest sampling strategies in greenhouse-dominated landscapes. The study supports the development of spatially informed monitoring systems using simulated abundance data and Bayesian spatial models.
 
