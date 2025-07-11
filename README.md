@@ -47,7 +47,7 @@ These metrics are saved in `.csv` files named according to the landscape and bar
 
 If you use this code or reproduce our results, please cite:
 
-> Requena-Mullor, J. M. (2025). *Landscape-scale simulation and evaluation of insect pest monitoring strategies around greenhouse environments*. *[Journal Name]*, [Volume(Issue)], pp–pp. DOI: [DOI placeholder]
+> Requena-Mullor, J. M. (2025). *Landscape-scale simulation and evaluation of insect pest sampling strategies around greenhouse environments*. DOI: [DOI placeholder]
 
 ## License
 
