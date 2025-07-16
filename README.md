@@ -4,8 +4,8 @@ This repository contains R code and spatial data associated with the manuscript 
 
 ## Contents
 
-- `Requena_Mullor_et_al_R_code_clusterSampling.R`: R script for simulating and analyzing cluster sampling strategies using spatial Bayesian models.
-- `Requena_Mullor_et_al_R_code_randomSampling.R`: R script for analyzing random sampling strategies under comparable greenhouse landscape scenarios.
+- `Requena_Mullor_et_al_R_code_clusterSampling.R`: R script for simulating and analyzing cluster sampling under comparable greenhouse landscape scenarios.
+- `Requena_Mullor_et_al_R_code_randomSampling.R`: R script for simulating and analyzing random sampling under comparable greenhouse landscape scenarios.
 - `shapefiles.zip`: Compressed folder containing all required shapefiles to reproduce the simulation and modeling results across different greenhouse configurations (dense, moderate, and scarce coverage).
 
 ## Requirements
@@ -31,7 +31,7 @@ Make sure you have the following installed:
 3. Open the R script corresponding to your sampling strategy:
    - `Requena_Mullor_et_al_R_code_clusterSampling.R`
    - `Requena_Mullor_et_al_R_code_randomSampling.R`
-4. Edit the paths to the shapefiles in the script to match your local directory structure.
+4. Edit the paths to the shapefiles in the script and output directory to match your local directory structure.
 5. Edit the *range.fraction* attribute in *inla.barrier.pcmatern()* to select the desired level of greenhouse resistance to pest dispersal, i.e., 0.2 (strong) or 0.8 (weak).
 6. Run the script in R. Model fitting and evaluation will be performed, and outputs will be saved as `.csv` files in the specified output folder.
 7. To analyze different landscapes (e.g., scarce, dense, and moderate greenhouse density), modify the shapefile names and mesh parameters accordingly within the script.
