@@ -49,6 +49,12 @@ If you use this code or reproduce our results, please cite:
 
 > Requena-Mullor, J. M. (2025). *Landscape-scale simulation and evaluation of insect pest sampling strategies around greenhouse environments*. DOI: [DOI placeholder]
 
+## References
+
+> Bakka, H., Vanhatalo, J., Illian, J.B., Simpson, D., Rue, H., 2019. Non-stationary Gaussian models with physical barriers. Spatial Statistics 29, 268–288. https://doi.org/10.1016/j.spasta.2019.01.002
+> 
+> Rue, H., Martino, S., Chopin, N., 2009. Approximate Bayesian inference for latent Gaussian models by using integrated nested Laplace approximations. Journal of the Royal Statistical Society: Series B (Statistical Methodology) 71, 319–392. https://doi.org/10.1111/j.1467-9868.2008.00700.x
+
 ## License
 
 This repository is licensed under the [MIT License](LICENSE).
