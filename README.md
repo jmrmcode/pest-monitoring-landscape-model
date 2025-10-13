@@ -48,7 +48,7 @@ These metrics are saved in `.csv` files named according to the landscape and bar
 
 If you use this code or reproduce our results, please cite:
 
-> Requena-Mullor, J. M. (2025). *Landscape-scale simulation and evaluation of insect pest sampling strategies around greenhouse environments*. DOI: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15974920.svg)](https://doi.org/10.5281/zenodo.15974920)
+> Requena-Mullor, J. M. (2025). *Landscape-scale simulation and evaluation of insect pest sampling strategies around greenhouse environments*. DOI: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17340277.svg)](https://doi.org/10.5281/zenodo.17340277)
 
 
 ## References
