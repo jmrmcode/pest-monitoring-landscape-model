@@ -1,12 +1,13 @@
 # Landscape-scale Simulation and Evaluation of Insect Pest Abundance Sampling Strategies
 
-This repository contains R code and spatial data associated with the manuscript on simulating and evaluating insect pest sampling strategies in greenhouse-dominated landscapes. The study supports the development of spatially informed monitoring systems using simulated abundance data and Bayesian spatial models.
+This repository contains R code and spatial data associated with the manuscript on simulating and evaluating insect pest sampling strategies in greenhouse-dominated landscapes. The study supports the development of spatially informed monitoring systems using simulated abundance data and Bayesian spatial models. For complete transparency and to facilitate comparative studies, the repository also includes the data frame containing the performance metrics of all models simulated in our analysis.
 
 ## Contents
 
 - `Requena_Mullor_et_al_R_code_clusterSampling.R`: R script for simulating and analyzing cluster sampling under comparable greenhouse landscape scenarios.
 - `Requena_Mullor_et_al_R_code_randomSampling.R`: R script for simulating and analyzing random sampling under comparable greenhouse landscape scenarios.
 - `shapefiles.zip`: Compressed folder containing all required shapefiles to reproduce the simulation and modeling results across different greenhouse configurations (dense, moderate, and scarce coverage).
+- Models_performance.csv: Data frame containing the performance metrics of all models simulated in our analysis.
 
 ## Requirements
 
