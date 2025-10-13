@@ -7,7 +7,7 @@ This repository contains R code and spatial data associated with the manuscript 
 - `Requena_Mullor_et_al_R_code_clusterSampling.R`: R script for simulating and analyzing cluster sampling under comparable greenhouse landscape scenarios.
 - `Requena_Mullor_et_al_R_code_randomSampling.R`: R script for simulating and analyzing random sampling under comparable greenhouse landscape scenarios.
 - `shapefiles.zip`: Compressed folder containing all required shapefiles to reproduce the simulation and modeling results across different greenhouse configurations (dense, moderate, and scarce coverage).
-- Models_performance.csv: Data frame containing the performance metrics of all models simulated in our analysis.
+- `Models_performance.csv`: Data frame containing the performance metrics of all models simulated in our analysis.
 
 ## Requirements
 
