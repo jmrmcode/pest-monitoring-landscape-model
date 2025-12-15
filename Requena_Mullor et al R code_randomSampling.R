@@ -3,7 +3,6 @@ library("INLA")
 library("raster")
 library("INLAspacetime")
 library("sf")
-
 set.seed(201805)
 
 # Load required spatial files for building the mesh
@@ -14,7 +13,6 @@ barriers_sf <- st_as_sf(barriers)  # Convert to sf object for easier geometry ha
 
 # Extract a random sample of 40 points outside greenhouses
 points <- spsample(greenhouses, n = 40, type = "random")
-
 
 # Loop over simulation settings (currently only one value for 'range')
 nrange <- c(100)
