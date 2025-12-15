@@ -17,7 +17,8 @@ points <- spsample(greenhouses, n = 40, type = "random")
 
 
 # Loop over simulation settings (currently only one value for 'range')
-for (j in c(100)) {
+nrange <- c(100)
+for (j in nrange) {
   # Set the length of the boundary extension
   range <- j # in meters
   bound.outer = 200
@@ -65,8 +66,9 @@ for (j in c(100)) {
   u = u[, 1] + exp(-0.001 * (mesh_min_dist_to_edge)^2)
   
   ####### Extract a random sample from u using points
-  sensib <- data.frame(size = numeric(70), MAE = numeric(70), ppvalue = numeric(70))
-  iter <- rep(c(10), 1, each = 10)
+  niter <- 10
+  sensib <- data.frame(size = numeric(7*niter), MAE = numeric(7*niter), ppvalue = numeric(7*niter))
+  iter <- rep(c(niter), 1, each = niter)
   ii = 0
   
   for (i in iter) {
