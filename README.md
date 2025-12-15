@@ -40,49 +40,45 @@ Make sure you have the following installed:
 ## Sensitivity and Reproducibility Check
 To ensure transparency and reproducibility, the simulation framework includes explicit checks on parameter sensitivity and the stability of results:
 
-- **Spatial Range Parameter**: All main simulations were conducted using a spatial range of 100 m, reflecting fine- to moderate-scale pest aggregation observed in greenhouse-dominated landscapes. This parameter was selected based on prior ecological knowledge and literature (Byrne et al., 1996; Chust et al., 2004; Dominik et al., 2018).
-
-- **Number of Simulations**: Each scenario was replicated multiple times to account for stochastic variability in pest distributions. The number of replicates was chosen to stabilize the mean performance metrics (e.g., MAE, posterior predictive p-values) and ensure that observed differences among sampling strategies are robust.
-
-- **Alternative Parameters**: Users can adjust the spatial range or noise parameters within the scripts to evaluate model behavior under different ecological assumptions. This allows testing the robustness of sampling strategies across varying dispersal scales and landscape structures.
+- **Alternative Parameters**: Users can adjust the spatial range (*nrange* in line 18 of `Requena_Mullor_et_al_R_code_clusterSampling.R` and `Requena_Mullor_et_al_R_code_randomSampling.R`) and greenhouse resistance (*range.fraction* in line 62 of `Requena_Mullor_et_al_R_code_clusterSampling.R` and line 58 of `Requena_Mullor_et_al_R_code_randomSampling.R`) within the scripts to evaluate model behavior under different ecological assumptions. This allows testing the robustness of sampling strategies across varying dispersal scales and landscape structures.
+  
+- **Number of Simulations**: Each scenario can be replicated multiple times to account for stochastic variability in pest distributions. The number of replicates (*niter* in line 75 of `Requena_Mullor_et_al_R_code_clusterSampling.R` and line 67 of `Requena_Mullor_et_al_R_code_randomSampling.R`) is chosen to stabilize the mean performance metrics (i.e., MAE, posterior predictive p-values) and ensure that observed differences among sampling strategies are robust.
 
 - **Execution**: Running either script (clusterSampling or randomSampling) reproduces the simulations, fits the INLA Barrier model, and outputs the performance metrics. The same workflow can be repeated for different landscapes, sampling sizes, or barrier resistance levels to replicate or extend the analysis.
 
 ### Example: Adjusting Spatial Range and Number of Simulations
+> The snippet below illustrates the implementation of a sensitivity check, highlighting the specific code section that requires modification.
 > ```r
 > # Load required packages
-> library(INLA)
-> library(sf)
+> library("INLA")
+> library("raster")
+> library("INLAspacetime")
+> library("sf")
 >
-> # Define simulation parameters
-> spatial_range <- 150  # Change the range to 150 meters
-> n_simulations <- 50   # Number of simulation replicates
-> 
-> # Loop through simulations
-> results_list <- vector("list", n_simulations)
-> for (i in 1:n_simulations) {
->  
->  # Run simulation function (replace with your actual function)
->  sim_data <- simulate_pest_abundance(range = spatial_range)
->  
->  # Fit the Barrier INLA model
->  model_fit <- inla.barrier.pcmatern(
->    formula = abundance ~ 1,
->    data = sim_data,
->    range.fraction = 0.2  # Example: strong greenhouse resistance
->  )
-> 
->  # Store performance metrics
->  results_list[[i]] <- calculate_performance(model_fit)
-> }
+> # Set seed for reproducibility
+> set.seed(201805)
 >
-> # Combine results across replicates
-> results_df <- do.call(rbind, results_list)
-> write.csv(results_df, "simulation_results_custom.csv", row.names = FALSE)
+> # → See main scripts for full implementation
+> # ...
+> # ...
+> 
+> # Loop over simulation settings (currently only one value for 'range')
+> nrange <- c(100) # set the desired spatial range
+> for (j in nrange) {
+> # → See main scripts for full implementation
+> # ...
+> # ...
+> 
+> # Data frame to store performance metrics
+> niter <- 10 # set the desired number of iterations
+> # → See main scripts for full implementation
+> # ...
+> # ...
+> 
 > ```
 > **Notes**:
-> - `spatial_range` can be adjusted to test alternative dispersal scales.
-> - `n_simulations` controls the number of replicates for stability checks.
+> - `nrange` can be adjusted to test alternative dispersal scales.
+> - `niter` controls the number of replicates for stability checks.
 > - This workflow reproduces the simulation, model fitting, and performance evaluation for any landscape and barrier configuration.
 
 ## Output
