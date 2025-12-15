@@ -15,7 +15,8 @@ points <- shapefile("/path/to/your/points_clustering_dense_greenhouses.shp")  # 
 testingpoints <- shapefile("/path/to/your/testingpoints_clustering_dense_greenhouses.shp")  # Testing points
 
 # Loop over simulation settings (currently only one value for 'range')
-for (j in c(100)) {
+nrange <- c(100)
+for (j in nrange) {
   # Set mesh and barrier parameters
   range <- j  # Spatial range in meters
   bound.outer <- 200  # Outer boundary extension for the mesh
@@ -71,8 +72,9 @@ for (j in c(100)) {
   ######## Simulate data and evaluate model performance ########
   
   # Data frame to store performance metrics
-  sensib <- data.frame(size = numeric(70), MAE = numeric(70), ppvalue = numeric(70))
-  iter <- rep(c(10), 1, each = 10)
+  niter <- 10
+  sensib <- data.frame(size = numeric(7*niter), MAE = numeric(7*niter), ppvalue = numeric(7*niter))
+    iter <- rep(c(niter), 1, each = niter)
   ii <- 0
   
   for (i in iter) {
