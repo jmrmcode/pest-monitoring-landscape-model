@@ -37,18 +37,69 @@ Make sure you have the following installed:
 6. Run the script in R. Model fitting and evaluation will be performed, and outputs will be saved as `.csv` files in the specified output folder.
 7. To analyze different landscapes (e.g., scarce, dense, and moderate greenhouse density), modify the shapefile names and mesh parameters accordingly within the script.
 
+## Sensitivity and Reproducibility Check
+To ensure transparency and reproducibility, the simulation framework includes explicit checks on parameter sensitivity and the stability of results:
+
+- **Spatial Range Parameter**: All main simulations were conducted using a spatial range of 100 m, reflecting fine- to moderate-scale pest aggregation observed in greenhouse-dominated landscapes. This parameter was selected based on prior ecological knowledge and literature (Byrne et al., 1996; Chust et al., 2004; Dominik et al., 2018).
+
+- **Number of Simulations**: Each scenario was replicated multiple times to account for stochastic variability in pest distributions. The number of replicates was chosen to stabilize the mean performance metrics (e.g., MAE, posterior predictive p-values) and ensure that observed differences among sampling strategies are robust.
+
+- **Alternative Parameters**: Users can adjust the spatial range or noise parameters within the scripts to evaluate model behavior under different ecological assumptions. This allows testing the robustness of sampling strategies across varying dispersal scales and landscape structures.
+
+- **Execution**: Running either script (clusterSampling or randomSampling) reproduces the simulations, fits the INLA Barrier model, and outputs the performance metrics. The same workflow can be repeated for different landscapes, sampling sizes, or barrier resistance levels to replicate or extend the analysis.
+
+### Example: Adjusting Spatial Range and Number of Simulations
+> ```r
+> # Load required packages
+> library(INLA)
+> library(sf)
+>
+> # Define simulation parameters
+> spatial_range <- 150  # Change the range to 150 meters
+> n_simulations <- 50   # Number of simulation replicates
+> 
+> # Loop through simulations
+> results_list <- vector("list", n_simulations)
+> for (i in 1:n_simulations) {
+>  
+>  # Run simulation function (replace with your actual function)
+>  sim_data <- simulate_pest_abundance(range = spatial_range)
+>  
+>  # Fit the Barrier INLA model
+>  model_fit <- inla.barrier.pcmatern(
+>    formula = abundance ~ 1,
+>    data = sim_data,
+>    range.fraction = 0.2  # Example: strong greenhouse resistance
+>  )
+> 
+>  # Store performance metrics
+>  results_list[[i]] <- calculate_performance(model_fit)
+> }
+>
+> # Combine results across replicates
+> results_df <- do.call(rbind, results_list)
+> write.csv(results_df, "simulation_results_custom.csv", row.names = FALSE)
+> ```
+> **Notes**:
+> - `spatial_range` can be adjusted to test alternative dispersal scales.
+> - `n_simulations` controls the number of replicates for stability checks.
+> - This workflow reproduces the simulation, model fitting, and performance evaluation for any landscape and barrier configuration.
+
 ## Output
 
 Each script will generate performance metrics across sample sizes:
 - **MAE** (Mean Absolute Error)
 - **Posterior Predictive p-values**
+
 These metrics are saved in `.csv` files named according to the landscape and barrier range used in the simulation.
 
 ## Citation
 
 If you use this code or reproduce our results, please cite:
 
-> Requena-Mullor, J. M. (2025). *Landscape-scale simulation and evaluation of insect pest sampling strategies around greenhouse environments*. DOI: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17340277.svg)](https://doi.org/10.5281/zenodo.17340277)
+> Requena-Mullor, J. M. (2025). *Landscape-scale simulation and evaluation of insect pest sampling strategies around greenhouse environments*. DOI:
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17340277.svg)](https://doi.org/10.5281/zenodo.17340277)
 
 
 ## References
