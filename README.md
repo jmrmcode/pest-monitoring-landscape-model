@@ -40,7 +40,7 @@ Make sure you have the following installed:
 ## Sensitivity and Reproducibility Check
 To ensure transparency and reproducibility, the simulation framework includes explicit checks on parameter sensitivity and the stability of results:
 
-- **Alternative Parameters**: Users can adjust the spatial range (*nrange* in line 18 of `Requena_Mullor_et_al_R_code_clusterSampling.R` and `Requena_Mullor_et_al_R_code_randomSampling.R`) and greenhouse resistance (*range.fraction* in line 62 of `Requena_Mullor_et_al_R_code_clusterSampling.R` and line 58 of `Requena_Mullor_et_al_R_code_randomSampling.R`) within the scripts to evaluate model behavior under different ecological assumptions. This allows testing the robustness of sampling strategies across varying dispersal scales and landscape structures.
+- **Alternative Parameters**: Users can adjust the spatial range (*nrange* in line 18 of `Requena_Mullor_et_al_R_code_clusterSampling.R` and `Requena_Mullor_et_al_R_code_randomSampling.R`) and greenhouse resistance (*range.fraction* in line 62 of `Requena_Mullor_et_al_R_code_clusterSampling.R` and line 58 of `Requena_Mullor_et_al_R_code_randomSampling.R`) to evaluate model behavior under different ecological assumptions. This allows testing the robustness of sampling strategies across varying dispersal scales and landscape structures.
   
 - **Number of Simulations**: Each scenario can be replicated multiple times to account for stochastic variability in pest distributions. The number of replicates (*niter* in line 75 of `Requena_Mullor_et_al_R_code_clusterSampling.R` and line 67 of `Requena_Mullor_et_al_R_code_randomSampling.R`) is chosen to stabilize the mean performance metrics (i.e., MAE, posterior predictive p-values) and ensure that observed differences among sampling strategies are robust.
 
@@ -63,14 +63,14 @@ To ensure transparency and reproducibility, the simulation framework includes ex
 > # ...
 > 
 > # Loop over simulation settings (currently only one value for 'range')
-> nrange <- c(100) # set the desired spatial range
+> nrange <- c(200) # set the desired spatial range
 > for (j in nrange) {
 > # → See main scripts for full implementation
 > # ...
 > # ...
 > 
 > # Data frame to store performance metrics
-> niter <- 10 # set the desired number of iterations
+> niter <- 20 # set the desired number of iterations
 > # → See main scripts for full implementation
 > # ...
 > # ...
@@ -79,7 +79,6 @@ To ensure transparency and reproducibility, the simulation framework includes ex
 > **Notes**:
 > - `nrange` can be adjusted to test alternative dispersal scales.
 > - `niter` controls the number of replicates for stability checks.
-> - This workflow reproduces the simulation, model fitting, and performance evaluation for any landscape and barrier configuration.
 
 ## Output
 
