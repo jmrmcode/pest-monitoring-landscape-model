@@ -41,12 +41,10 @@ Make sure you have the following installed:
 To ensure transparency and reproducibility, the simulation framework includes explicit checks on parameter sensitivity and the stability of results:
 
 - **Alternative Parameters**: Users can adjust the spatial range (*nrange* in line 18 of both `Requena_Mullor_et_al_R_code_clusterSampling.R` and `Requena_Mullor_et_al_R_code_randomSampling.R`) and greenhouse resistance (*range.fraction* in line 62 of `Requena_Mullor_et_al_R_code_clusterSampling.R` and line 58 of `Requena_Mullor_et_al_R_code_randomSampling.R`) to evaluate model behavior under different ecological assumptions. This allows testing the robustness of sampling strategies across varying dispersal scales and landscape structures.
-  
-- **Number of Simulations**: Each scenario can be replicated multiple times to account for stochastic variability in pest distributions. The number of replicates (*niter* in line 75 of `Requena_Mullor_et_al_R_code_clusterSampling.R` and line 67 of `Requena_Mullor_et_al_R_code_randomSampling.R`) is chosen to stabilize the mean performance metrics (i.e., MAE, posterior predictive p-values) and ensure that observed differences among sampling strategies are robust.
 
 - **Execution**: Running either script (clusterSampling or randomSampling) reproduces the simulations, fits the INLA Barrier model, and outputs the performance metrics. The same workflow can be repeated for different landscapes, sampling sizes, or barrier resistance levels to replicate or extend the analysis.
 
-### Example: Adjusting Spatial Range and Number of Simulations
+### Example: Adjusting Spatial Range
 > The snippet below illustrates the implementation of a sensitivity check, highlighting the specific code section that requires modification.
 > ```r
 > # Load required packages
@@ -63,14 +61,14 @@ To ensure transparency and reproducibility, the simulation framework includes ex
 > # ...
 > 
 > # Loop over simulation settings (currently only one value for 'range')
-> nrange <- c(200) # set the desired spatial range
+> nrange <- c(100) # set the desired spatial range
 > for (j in nrange) {
 > # → See main scripts for full implementation
 > # ...
 > # ...
 > 
 > # Data frame to store performance metrics
-> niter <- 20 # set the desired number of iterations
+> niter <- 10 # set the number of iterations
 > # → See main scripts for full implementation
 > # ...
 > # ...
@@ -78,7 +76,7 @@ To ensure transparency and reproducibility, the simulation framework includes ex
 > ```
 > **Notes**:
 > - `nrange` can be adjusted to test alternative dispersal scales.
-> - `niter` controls the number of replicates for stability checks.
+> - `niter` controls the number of replicates.
 
 ## Output
 
