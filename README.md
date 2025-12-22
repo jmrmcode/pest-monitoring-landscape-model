@@ -38,7 +38,7 @@ Make sure you have the following installed:
 7. To analyze different landscapes (e.g., scarce, dense, and moderate greenhouse density), modify the shapefile names and mesh parameters accordingly within the script.
 
 ## Sensitivity and Reproducibility Check
-To ensure transparency and reproducibility, the simulation framework includes explicit checks on parameter sensitivity and the stability of results:
+The simulation framework can be run using different spatial range parameterizations:
 
 - **Alternative Parameters**: Users can adjust the spatial range (*nrange* in line 18 of both `Requena_Mullor_et_al_R_code_clusterSampling.R` and `Requena_Mullor_et_al_R_code_randomSampling.R`) and greenhouse resistance (*range.fraction* in line 62 of `Requena_Mullor_et_al_R_code_clusterSampling.R` and line 58 of `Requena_Mullor_et_al_R_code_randomSampling.R`) to evaluate model behavior under different ecological assumptions. This allows testing the robustness of sampling strategies across varying dispersal scales and landscape structures.
 
